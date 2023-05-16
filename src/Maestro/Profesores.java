@@ -3,7 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Pantallas;
+package Maestro;
+
+import Pantallas.Admin.Admin;
+import Pantallas.Admin.Admin;
+import Pantallas.Login;
+import java.awt.Image;
+import java.awt.Toolkit;
+import javax.swing.JRootPane;
 
 /**
  *
@@ -15,7 +22,15 @@ public class Profesores extends javax.swing.JFrame {
      * Creates new form Profesores
      */
     public Profesores() {
+        setUndecorated(true);
+        getRootPane().setWindowDecorationStyle(JRootPane.NONE);
+
         initComponents();
+        this.setTitle("Profesores");
+        Image img = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagenes/imagen.png"));
+        this.setIconImage(img);
+        this.setLocationRelativeTo(null);
+    
     }
 
     /**
@@ -143,8 +158,8 @@ public class Profesores extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-            Admin admin = new Admin();
-            admin.setVisible(true);
+            Login log = new Login();
+            log.setVisible(true);
             this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 

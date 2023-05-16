@@ -5,7 +5,11 @@
  */
 package Pantallas;
 
+import Pantallas.Admin.Admin;
 import java.awt.Color;
+import java.awt.Image;
+import java.awt.Toolkit;
+import javax.swing.JRootPane;
 
 /**
  *
@@ -17,7 +21,15 @@ public class Login extends javax.swing.JFrame {
      * Creates new form Login
      */
     public Login() {
+         setUndecorated(true);
+         getRootPane().setWindowDecorationStyle(JRootPane.NONE);
+
         initComponents();
+        this.setTitle("Login");
+        Image img = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagenes/imagen.png"));
+        this.setIconImage(img);
+        this.setLocationRelativeTo(null);
+        
     }
 
     /**

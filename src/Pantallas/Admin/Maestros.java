@@ -3,7 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Pantallas;
+package Pantallas.Admin;
+
+import Pantallas.Login;
+import java.awt.Image;
+import java.awt.Toolkit;
+import javax.swing.JRootPane;
 
 /**
  *
@@ -15,7 +20,15 @@ public class Maestros extends javax.swing.JFrame {
      * Creates new form Maestros
      */
     public Maestros() {
+        setUndecorated(true);
+        getRootPane().setWindowDecorationStyle(JRootPane.NONE);
+
         initComponents();
+        this.setTitle("Maestros");
+        Image img = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagenes/imagen.png"));
+        this.setIconImage(img);
+        this.setLocationRelativeTo(null);
+     
     }
 
     /**
