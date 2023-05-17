@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Maestro;
+package Pantallas.Maestro;
 
 import Pantallas.Admin.Admin;
 import Pantallas.Admin.Admin;
