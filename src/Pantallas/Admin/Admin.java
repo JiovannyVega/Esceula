@@ -284,8 +284,8 @@ public class Admin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         Alumnos alum = new Alumnos();
-         alum.setVisible(true);
+         Estudiantes estu = new Estudiantes();
+         estu.setVisible(true);
          this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -300,8 +300,8 @@ public class Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        Profesores prof = new Profesores();
-        prof.setVisible(true);
+        Maestros maes = new Maestros();
+        maes.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton7ActionPerformed
 
