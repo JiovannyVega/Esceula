@@ -5,10 +5,17 @@
  */
 package Pantallas;
 
+import Metodos.Conexion;
 import Pantallas.Admin.Admin;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
 import javax.swing.JRootPane;
 
 /**
@@ -17,19 +24,28 @@ import javax.swing.JRootPane;
  */
 public class Login extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Login
-     */
+    public static Connection con;
+    Statement st;
+
+    private String Usuario = "root";
+    private String Password = "Marisol12";
+
     public Login() {
-         setUndecorated(true);
-         getRootPane().setWindowDecorationStyle(JRootPane.NONE);
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Escuela", Usuario, Password);
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+        setUndecorated(true);
+        getRootPane().setWindowDecorationStyle(JRootPane.NONE);
 
         initComponents();
         this.setTitle("Login");
         Image img = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagenes/imagen.png"));
         this.setIconImage(img);
         this.setLocationRelativeTo(null);
-        
+
     }
 
     /**
@@ -211,10 +227,20 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_SalirActionPerformed
 
     private void EntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntrarActionPerformed
-            Admin admin = new Admin();
-            admin.setVisible(true);
-            this.dispose();
-        
+        if (txtPassword.getText().isEmpty() || txtUsuario.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Ambos campos deben estar llenos para poder iniciar sesion");
+        } else {
+            try {
+                st = Login.con.createStatement();
+                if (Conexion.login(st, txtUsuario.getText(), txtPassword.getText())) {
+                    Admin admin = new Admin();
+                    admin.setVisible(true);
+                    this.dispose();
+                }
+            } catch (SQLException f) {
+                System.out.println(f);
+            }
+        }
     }//GEN-LAST:event_EntrarActionPerformed
 
     /**
