@@ -58,12 +58,13 @@ public class Conexion {
         }
     }
 
-    public static void mostrarNC(Statement st, JTextField txtNumControl) {
+    public static void mostrarNC(JTextField txtNumControl) {
         try {
+            Statement st = Pantallas.Login.con.createStatement();
             int max = 0;
-            ResultSet rs = st.executeQuery("select numero_control from alumno");
+            ResultSet rs = st.executeQuery("select NumControl from alumno");
             while (rs.next()) {
-                max = Math.max(max, rs.getInt("numero_control"));
+                max = Math.max(max, rs.getInt("NumControl"));
             }
             txtNumControl.setText(String.valueOf(max + 1));
         } catch (Exception e) {

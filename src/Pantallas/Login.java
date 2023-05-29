@@ -111,6 +111,7 @@ public class Login extends javax.swing.JFrame {
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel8.setText("Usuario");
 
+        txtUsuario.setText("Erick");
         txtUsuario.setToolTipText("");
         txtUsuario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         txtUsuario.setFocusTraversalPolicyProvider(true);
@@ -126,6 +127,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        txtPassword.setText("Hola");
         txtPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
