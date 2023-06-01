@@ -97,31 +97,27 @@ public class Conexion {
         return true;
     }
     
-    public static void crearAlumno(int numeroControl, String nombre, String apellido1, String apellido2, int cp, String calle, int numExt, int numInt, String FN, String sexo, String telefono, String email, Statement st) {
+    public static void crearAlumno(int NumControl, String nombre, String apellido1, String apellido2, String FN, String sexo, String email, String id_uduario) {
         try {
+            Statement st = Pantallas.Login.con.createStatement();
             ResultSet rs = st.executeQuery("select * from alumno");
             PreparedStatement ps = con.prepareStatement("insert into alumno values (?,?,?,?,?,?,?,?,?,?,?,?)");
             while (rs.next()) {                
-                if (numeroControl == rs.getInt("numero_control")) {
+                if (NumControl == rs.getInt("numero_control")) {
                     JOptionPane.showMessageDialog(null, "Ese numero de control ya esta en uso");
                 }
             }
-            ps.setInt(1, numeroControl);
+            ps.setInt(1, NumControl);
             ps.setString(2, nombre);
             ps.setString(3, apellido1);
             ps.setString(4, apellido2);
-            ps.setInt(5, cp);
-            ps.setString(6, calle);
-            ps.setInt(7, numExt);
-            ps.setInt(8, numInt);
-            ps.setString(9, FN);
-            ps.setString(10, sexo);
-            ps.setString(11, telefono);
-            ps.setString(12, email);
+            ps.setString(12, FN);
+            ps.setString(13, sexo);
+            
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Alumno registrado con exito!!");
         } catch (Exception e) {
-            System.out.println(e);
+            JOptionPane.showMessageDialog(null, e);
         }
     }
 }
